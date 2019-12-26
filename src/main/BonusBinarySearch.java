@@ -14,8 +14,11 @@ public class BonusBinarySearch {
     public static int binarySearch(int[] sortedNumbers, int n) {
         int right = sortedNumbers.length - 1;
         int left = 0;
-        while (right >= left) {
+        if (sortedNumbers[left] == n) return left;
+        if (sortedNumbers[right] == n) return right;
+        while (right - left >= 2) {
             int mid = left + ((right - left) / 2);
+            //System.out.println("left "+left+"; mid "+mid+"; right "+right);
             if (sortedNumbers[mid] > n) {
                 right = mid;
             } else if (sortedNumbers[mid] < n) {
